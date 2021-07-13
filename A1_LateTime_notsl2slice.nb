@@ -1,0 +1,4591 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    167539,       4583]
+NotebookOptionsPosition[    162346,       4484]
+NotebookOutlinePosition[    162712,       4500]
+CellTagsIndexPosition[    162669,       4497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nN", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"A1RootLattice", "=", " ", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"a", "+", "b"}], "\[Equal]", "0"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "b"}], "}"}], ",", "Nothing"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", 
+          RowBox[{"-", "nN"}], ",", "nN"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"b", ",", 
+          RowBox[{"-", "nN"}], ",", "nN"}], "}"}]}], "]"}], ",", "1"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"A10class", " ", "=", " ", 
+     RowBox[{"Join", "[", 
+      RowBox[{"A1Roots", ",", 
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"A11class", " ", "=", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"a", "+", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "A1RootLattice"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"A12class", " ", "=", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"a", "-", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "A1RootLattice"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Tau]inf", "[", 
+    RowBox[{
+    "\[Rho]1_", ",", "\[Rho]2_", ",", "\[Nu]1_", ",", "\[Nu]2_", ",", "r_"}], 
+    "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["E", 
+      RowBox[{
+       SuperscriptBox["r", "2"], 
+       RowBox[{
+        SuperscriptBox["\[Epsilon]", 
+         RowBox[{"-", "2"}]], "/", "16"}]}]], 
+     SuperscriptBox["r", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["\[Epsilon]", 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "4"}]], 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"1", "/", "4"}], 
+            RowBox[{"m", ".", "m"}]}], "+", "i"}], "\[LessEqual]", "nN"}], 
+         ",", 
+         RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"1", "/", "4"}], 
+             RowBox[{"m", ".", "m"}]}], "+", "i"}]], 
+          SuperscriptBox["\[Xi]1", 
+           RowBox[{"m", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]], 
+          SuperscriptBox["\[Xi]2", 
+           RowBox[{"m", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]], 
+          SuperscriptBox["E", 
+           RowBox[{" ", 
+            RowBox[{"2", "\[Pi]", " ", "I", " ", 
+             RowBox[{"m", ".", 
+              RowBox[{"{", 
+               RowBox[{"\[Rho]1", ",", "\[Rho]2"}], "}"}]}]}]}]], 
+          SuperscriptBox["r", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"1", "/", "4"}], 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}]}]}], "-", "i"}]], 
+          SuperscriptBox["E", 
+           RowBox[{" ", 
+            RowBox[{"1", 
+             SuperscriptBox["\[Epsilon]", 
+              RowBox[{"-", "1"}]], " ", "r", 
+             RowBox[{
+              RowBox[{"(", " ", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"1", "/", "2"}], ",", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}]}], "}"}]}]}]}]], 
+          RowBox[{"cC", "[", 
+           RowBox[{
+            RowBox[{"\[Nu]1", "+", 
+             RowBox[{"I", " ", 
+              RowBox[{"m", "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+            RowBox[{"\[Nu]2", "+", 
+             RowBox[{"I", " ", 
+              RowBox[{"m", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}], 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"i", "\[Equal]", "0"}], ",", "1", ",", 
+            RowBox[{
+             SubscriptBox["Binf", "i"], "[", 
+             RowBox[{
+              RowBox[{"\[Nu]1", "+", 
+               RowBox[{"I", " ", 
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+              RowBox[{"\[Nu]2", "+", 
+               RowBox[{"I", " ", 
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}]}], "]"}]}], ",", 
+         "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "A1RootLattice"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", "nN"}], "}"}]}], "]"}]}], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Epsilon]", "]"}], "nN"], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Xi]1", "]"}], "nN"], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Xi]2", "]"}], "nN"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Tau]inf1", "[", 
+    RowBox[{
+    "\[Rho]1_", ",", "\[Rho]2_", ",", "\[Nu]1_", ",", "\[Nu]2_", ",", "r_"}], 
+    "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["E", 
+      RowBox[{
+       SuperscriptBox["r", "2"], 
+       RowBox[{
+        SuperscriptBox["\[Epsilon]", 
+         RowBox[{"-", "2"}]], "/", "16"}]}]], 
+     SuperscriptBox["r", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["\[Epsilon]", 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "4"}]], 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"1", "/", "4"}], 
+            RowBox[{"m", ".", "m"}]}], "+", "i"}], "\[LessEqual]", "nN"}], 
+         ",", 
+         RowBox[{
+          SuperscriptBox["\[Epsilon]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"1", "/", "4"}], 
+             RowBox[{"m", ".", "m"}]}], "+", "i"}]], 
+          SuperscriptBox["\[Xi]1", 
+           RowBox[{"m", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]], 
+          SuperscriptBox["\[Xi]2", 
+           RowBox[{"m", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", "1"}], ")"}], 
+           RowBox[{"m", ".", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"1", "/", "2"}], ",", 
+              RowBox[{
+               RowBox[{"-", "1"}], "/", "2"}]}], "}"}]}]], 
+          SuperscriptBox["E", 
+           RowBox[{" ", 
+            RowBox[{"2", "\[Pi]", " ", "I", " ", 
+             RowBox[{"m", ".", 
+              RowBox[{"{", 
+               RowBox[{"\[Rho]1", ",", "\[Rho]2"}], "}"}]}]}]}]], 
+          SuperscriptBox["r", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"1", "/", "4"}], 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}]}]}], "-", "i"}]], 
+          SuperscriptBox["E", 
+           RowBox[{" ", 
+            RowBox[{"1", 
+             SuperscriptBox["\[Epsilon]", 
+              RowBox[{"-", "1"}]], " ", "r", 
+             RowBox[{
+              RowBox[{"(", " ", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+                RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"1", "/", "2"}], ",", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}]}], "}"}]}]}]}]], 
+          RowBox[{"cC", "[", 
+           RowBox[{
+            RowBox[{"\[Nu]1", "+", 
+             RowBox[{"I", " ", 
+              RowBox[{"m", "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+            RowBox[{"\[Nu]2", "+", 
+             RowBox[{"I", " ", 
+              RowBox[{"m", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}], 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"i", "\[Equal]", "0"}], ",", "1", ",", 
+            RowBox[{
+             SubscriptBox["Binf", "i"], "[", 
+             RowBox[{
+              RowBox[{"\[Nu]1", "+", 
+               RowBox[{"I", " ", 
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+              RowBox[{"\[Nu]2", "+", 
+               RowBox[{"I", " ", 
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}]}], "]"}]}], ",", 
+         "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "A1RootLattice"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", "nN"}], "}"}]}], "]"}]}], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Epsilon]", "]"}], "nN"], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Xi]1", "]"}], "nN"], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "\[Xi]2", "]"}], "nN"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Hirota2", "[", "t_", "]"}], "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"#", " ", "t", " ", 
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"t", " ", 
+          RowBox[{"D", "[", 
+           RowBox[{"#", ",", "t"}], "]"}]}], ",", "t"}], "]"}]}], "-", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"t", " ", 
+         RowBox[{"D", "[", 
+          RowBox[{"#", ",", "t"}], "]"}]}], ")"}], "2"]}], ")"}], "&"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.829651496651937*^9, 3.829651628374896*^9}, {
+   3.829651689172667*^9, 3.82965173796097*^9}, {3.829651888700039*^9, 
+   3.829651895937808*^9}, {3.829652275818613*^9, 3.829652277827161*^9}, {
+   3.829652475668374*^9, 3.829652479149041*^9}, {3.82965278273347*^9, 
+   3.8296527887939587`*^9}, {3.8296528602571297`*^9, 3.829652891049898*^9}, {
+   3.829653290533269*^9, 3.82965334493044*^9}, {3.829653738239004*^9, 
+   3.829653738385859*^9}, 3.829653800464114*^9, {3.829653893198411*^9, 
+   3.8296539269460077`*^9}, {3.829653964172121*^9, 3.829653974929358*^9}, {
+   3.829654644776643*^9, 3.829654650295191*^9}, {3.829655213690797*^9, 
+   3.829655232467297*^9}, {3.829655461571673*^9, 3.8296554986727333`*^9}, {
+   3.829655714948501*^9, 3.8296557201547127`*^9}, {3.829655860885785*^9, 
+   3.829655905587208*^9}, {3.829656039318722*^9, 3.82965604115197*^9}, {
+   3.829656168713139*^9, 3.829656170109231*^9}, {3.8296562469611397`*^9, 
+   3.829656248552638*^9}},
+ CellLabel->
+  "In[1320]:=",ExpressionUUID->"7a63c405-15d3-4e0a-b1eb-d288d40c7d14"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Coefficient", "[", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{
+       RowBox[{"Coefficient", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+           RowBox[{"\[Tau]inf", "[", 
+            RowBox[{
+            "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+             "t"}], "]"}], "]"}], "-", 
+          RowBox[{
+           FractionBox["1", "4"], 
+           SuperscriptBox["t", "2"], " ", 
+           SuperscriptBox["\[Epsilon]", 
+            RowBox[{"-", "2"}]], 
+           SuperscriptBox[
+            RowBox[{"\[Tau]inf1", "[", 
+             RowBox[{
+             "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+              "t"}], "]"}], "2"]}]}], ",", "\[Xi]1", ",", "0"}], "]"}], ",", 
+       "\[Xi]2", ",", "0"}], "]"}], ",", "\[Epsilon]", ",", 
+     RowBox[{
+      RowBox[{"-", "3"}], "/", "2"}]}], "]"}], "//", "Normal"}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8296542186087303`*^9, 3.829654221094949*^9}, 
+   3.829654391275757*^9, {3.829655279553734*^9, 3.8296553226485147`*^9}},
+ CellLabel->
+  "In[1325]:=",ExpressionUUID->"bfd14460-4032-4de7-9ec2-f11510b76d2b"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   FractionBox[
+    RowBox[{"t", " ", 
+     RowBox[{"(", 
+      RowBox[{"t", "+", 
+       RowBox[{"8", " ", "\[Epsilon]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}]}], ")"}]}], 
+    RowBox[{"8", " ", 
+     SuperscriptBox["\[Epsilon]", "2"]}]]], " ", 
+  SuperscriptBox["t", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"3", "+", 
+      SuperscriptBox["\[Nu]1", "2"], "+", 
+      SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}], " ", 
+     SuperscriptBox[
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]}], "-", 
+    RowBox[{"8", " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.829654241831024*^9, 3.829654411596014*^9, 3.82965525401886*^9, {
+   3.82965531561724*^9, 3.82965533940028*^9}, 3.829655522828472*^9, 
+   3.829655789397421*^9, 3.829656231370069*^9, 3.829656280972393*^9},
+ CellLabel->
+  "Out[1325]=",ExpressionUUID->"a4f8602d-b451-4b77-b10c-f98564239080"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Coefficient", "[", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{
+       RowBox[{"Coefficient", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+           RowBox[{"\[Tau]inf", "[", 
+            RowBox[{
+            "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+             "t"}], "]"}], "]"}], "-", 
+          RowBox[{
+           FractionBox["1", "4"], 
+           SuperscriptBox["t", "2"], " ", 
+           SuperscriptBox["\[Epsilon]", 
+            RowBox[{"-", "2"}]], 
+           SuperscriptBox[
+            RowBox[{"\[Tau]inf1", "[", 
+             RowBox[{
+             "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+              "t"}], "]"}], "2"]}]}], ",", "\[Xi]1", ",", "0"}], "]"}], ",", 
+       "\[Xi]2", ",", "0"}], "]"}], ",", "\[Epsilon]", ",", 
+     RowBox[{
+      RowBox[{"-", "1"}], "/", "2"}]}], "]"}], "//", "Normal"}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829655375047999*^9, 3.829655375139669*^9}},
+ CellLabel->
+  "In[1326]:=",ExpressionUUID->"7daa3758-5995-435e-8518-b0aa996b2089"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{"t", " ", 
+      RowBox[{"(", 
+       RowBox[{"t", "+", 
+        RowBox[{"8", " ", "\[Epsilon]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}]}], ")"}]}], 
+     RowBox[{"8", " ", 
+      SuperscriptBox["\[Epsilon]", "2"]}]]]}], " ", 
+  SuperscriptBox["t", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      SuperscriptBox["\[Nu]1", "2"], "+", 
+      SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "\[Nu]1"}], "+", "\[Nu]2"}], ")"}], " ", 
+     SuperscriptBox[
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", "\[Nu]1"}], "-", 
+       RowBox[{"3", " ", "\[Nu]2"}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], 
+      ")"}]}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.8296553918063097`*^9, 3.829655559830792*^9, 
+  3.829655751092112*^9, 3.829656430404086*^9},
+ CellLabel->
+  "Out[1326]=",ExpressionUUID->"89201920-5eec-423d-a5f2-3e6074dc67fb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}], " ", 
+     SuperscriptBox[
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]}], "-", 
+    RowBox[{"8", " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Nu]2", "\[Rule]", 
+     RowBox[{"-", "\[Nu]1"}]}], "}"}]}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829655348274662*^9, 3.829655355863676*^9}},
+ CellLabel->
+  "In[1242]:=",ExpressionUUID->"8874e58a-7e88-4fce-9b8b-3d81d930b5f8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", "\[Nu]1", " ", 
+   SuperscriptBox[
+    RowBox[{"cC", "[", 
+     RowBox[{"\[Nu]1", ",", 
+      RowBox[{"-", "\[Nu]1"}]}], "]"}], "2"]}], "-", 
+  RowBox[{"8", " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+     RowBox[{"\[ImaginaryI]", "-", "\[Nu]1"}]}], "]"}], " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{
+     RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], "-", "\[Nu]1"}]}], "]"}]}]}]], "Output",\
+
+ CellChangeTimes->{3.829655356237906*^9},
+ CellLabel->
+  "Out[1242]=",ExpressionUUID->"51979e64-1d46-478e-b604-6ed2a4a37126"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "\[Nu]1"}], "+", "\[Nu]2"}], ")"}], " ", 
+     SuperscriptBox[
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"cC", "[", 
+         RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]}], "8"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", "\[Nu]1"}], "-", 
+       RowBox[{"3", " ", "\[Nu]2"}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], 
+      ")"}]}]}], 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"], 
+    RowBox[{"(", 
+     RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}], " "}]], "//", 
+  "Cancel"}]], "Input",
+ CellChangeTimes->{{3.8296547498093367`*^9, 3.829654752617345*^9}, 
+   3.829655588106378*^9, {3.829655675782447*^9, 3.82965569456649*^9}, {
+   3.829656441122444*^9, 3.829656454872123*^9}},
+ CellLabel->
+  "In[1327]:=",ExpressionUUID->"e2e7b65a-11c8-4aff-8584-b7f719adb372"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "8"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"3", " ", "\[Nu]1"}], "-", 
+    RowBox[{"3", " ", "\[Nu]2"}], "-", 
+    RowBox[{"8", " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+    RowBox[{"4", " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "+", 
+    RowBox[{"4", " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{3.829654753206357*^9, 3.829655695200027*^9, 
+  3.829656455556381*^9},
+ CellLabel->
+  "Out[1327]=",ExpressionUUID->"f7ced647-0d3b-411f-9d35-2f8b1d1f66cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"3", " ", "\[Nu]1"}], "-", 
+     RowBox[{"3", " ", "\[Nu]2"}], "-", 
+     RowBox[{"8", " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+     RowBox[{"4", " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "+", 
+     RowBox[{"4", " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], ")"}], 
+   "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"x_", ",", "y_"}], "]"}], "\[Rule]", 
+     RowBox[{
+      FractionBox["1", "32"], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "-", "y"}], ")"}], "^", "3"}]}]}], "}"}]}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8296557006215067`*^9, 3.8296557015006027`*^9}, {
+  3.829656463236383*^9, 3.829656506853612*^9}},
+ CellLabel->
+  "In[1335]:=",ExpressionUUID->"b0caf9d4-6144-4e85-a442-a21871b16d73"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.829656477667006*^9, 3.8296565071307993`*^9}},
+ CellLabel->
+  "Out[1335]=",ExpressionUUID->"26bfda3a-0601-45a8-8650-4fb61faba363"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Coefficient", "[", 
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{
+      RowBox[{"Coefficient", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+         RowBox[{"\[Tau]inf", "[", 
+          RowBox[{
+          "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}],
+           "]"}], "]"}], ",", "\[Xi]1", ",", "0"}], "]"}], ",", "\[Xi]2", ",",
+       "0"}], "]"}], ",", "\[Epsilon]", ",", 
+    RowBox[{
+     RowBox[{"-", "3"}], "/", "2"}]}], "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8296547588555403`*^9, 3.829654797058586*^9}},
+ CellLabel->
+  "In[1237]:=",ExpressionUUID->"9482e6e1-dd79-48aa-9663-e066ddfeb00e"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   FractionBox[
+    RowBox[{"t", " ", 
+     RowBox[{"(", 
+      RowBox[{"t", "+", 
+       RowBox[{"8", " ", "\[Epsilon]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}]}], ")"}]}], 
+    RowBox[{"8", " ", 
+     SuperscriptBox["\[Epsilon]", "2"]}]]], " ", 
+  SuperscriptBox["t", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"3", "+", 
+      SuperscriptBox["\[Nu]1", "2"], "+", 
+      SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}], " ", 
+     SuperscriptBox[
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]}], "-", 
+    RowBox[{"7", " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.829654678740452*^9, {3.829654769501005*^9, 3.829654801523796*^9}, 
+   3.8296552601628923`*^9},
+ CellLabel->
+  "Out[1237]=",ExpressionUUID->"d3369050-eee1-4fe9-8b1c-a9878f49bfb2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"cC", "[", 
+          RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], ")"}]}]}], "/.", 
+    RowBox[{
+     RowBox[{"cC", "[", 
+      RowBox[{"x_", ",", "y_"}], "]"}], "\[Rule]", 
+     RowBox[{
+      RowBox[{"G", "[", 
+       RowBox[{"1", "+", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], "I", " ", "x"}], "-", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], "I", " ", "y"}]}], "]"}], 
+      SuperscriptBox["2", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "0"}], "+", 
+          RowBox[{"I", " ", "x"}]}], ")"}], "I", "  ", "x"}]], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "0"}], "+", 
+          RowBox[{"I", " ", "x"}]}], ")"}], "I", "  ", "x"}]]}]}]}], "//", 
+   "Simplify"}]}]], "Input",
+ CellChangeTimes->{{3.8296548125267344`*^9, 3.829654940667292*^9}, {
+  3.829655086831436*^9, 3.829655136516686*^9}, {3.829655166861979*^9, 
+  3.8296551715537*^9}},
+ CellLabel->
+  "In[1230]:=",ExpressionUUID->"ac740cdc-af41-4698-9a2d-d5e5c765cad8"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.829654841405336*^9, 3.829654941150832*^9}, {
+  3.829655096806786*^9, 3.82965513718309*^9}, {3.829655167500342*^9, 
+  3.829655172019019*^9}},
+ CellLabel->
+  "Out[1230]=",ExpressionUUID->"1bd2187b-e1b6-46c3-ab2b-64920f6e0902"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["2", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"I", " ", "x"}]}], ")"}], "I", "  ", "x"}]], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"I", " ", "x"}]}], ")"}], "I", "  ", "x"}]]}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829655143380761*^9, 3.829655144282888*^9}},
+ CellLabel->
+  "In[1228]:=",ExpressionUUID->"1d2d2c44-5477-4e54-a328-275056826dda"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["2", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "2"]}], " ", "x", " ", 
+    RowBox[{"(", 
+     RowBox[{"\[ImaginaryI]", "+", "x"}], ")"}]}]], " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", "\[Pi]", " ", "x", " ", 
+    
+    RowBox[{"(", 
+     RowBox[{"\[ImaginaryI]", "+", "x"}], ")"}]}]]}]], "Output",
+ CellChangeTimes->{3.8296551446384897`*^9},
+ CellLabel->
+  "Out[1228]=",ExpressionUUID->"7ebb79a5-5095-4d48-9eb6-e98c819c4815"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RSolve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"f", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[Nu]1"}], ",", 
+       RowBox[{"1", "+", "\[Nu]2"}]}], "]"}], " ", 
+     RowBox[{"f", "[", 
+      RowBox[{
+       RowBox[{"1", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[Nu]2"}]}], "]"}]}], "\[Equal]", 
+    RowBox[{"2", " ", 
+     SuperscriptBox[
+      RowBox[{"f", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]}]}], ",", 
+   RowBox[{"f", "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.829654946810343*^9, 3.82965496996644*^9}, {
+  3.829655031992805*^9, 3.829655058634201*^9}},
+ CellLabel->
+  "In[1215]:=",ExpressionUUID->"e09e381f-51cf-45c5-83c1-5932c8b06526"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "\[Rule]", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "4"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[ImaginaryI]", " ", "\[Pi]", " ", "\[Nu]1"}], "-", 
+         RowBox[{"\[ImaginaryI]", " ", "\[Pi]", " ", 
+          SuperscriptBox["\[Nu]1", "2"]}], "-", 
+         RowBox[{"2", " ", "\[Nu]1", " ", 
+          RowBox[{"Log", "[", "2", "]"}]}], "+", 
+         RowBox[{"2", " ", 
+          SuperscriptBox["\[Nu]1", "2"], " ", 
+          RowBox[{"Log", "[", "2", "]"}]}]}], ")"}]}], "+", 
+      RowBox[{
+       TemplateBox[{"1"},
+        "C"], "[", 
+       RowBox[{"\[Nu]1", "+", "\[Nu]2"}], "]"}], "+", 
+      RowBox[{"\[Nu]1", " ", 
+       RowBox[{
+        TemplateBox[{"2"},
+         "C"], "[", 
+        RowBox[{"\[Nu]1", "+", "\[Nu]2"}], "]"}]}]}]]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.829654964644446*^9, 3.829654970336083*^9}, {
+  3.829655034604567*^9, 3.829655063276156*^9}},
+ CellLabel->
+  "Out[1215]=",ExpressionUUID->"00a33488-1753-49f9-9a81-b1628d930122"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    FractionBox["1", "4"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", " ", "\[Pi]", " ", "\[Nu]1"}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", "\[Pi]", " ", 
+       SuperscriptBox["\[Nu]1", "2"]}], "-", 
+      RowBox[{"2", " ", "\[Nu]1", " ", 
+       RowBox[{"Log", "[", "2", "]"}]}], "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[Nu]1", "2"], " ", 
+       RowBox[{"Log", "[", "2", "]"}]}]}], ")"}]}]], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829655066926276*^9, 3.829655075980497*^9}},
+ CellLabel->
+  "In[1217]:=",ExpressionUUID->"76da47e9-ddb5-447e-9632-cafcb307c2b6"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["2", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "\[Nu]1"}], ")"}], " ", "\[Nu]1"}]], " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "\[Nu]1"}], ")"}], " ", 
+    "\[Nu]1"}]]}]], "Output",
+ CellChangeTimes->{{3.829655069493124*^9, 3.8296550764721117`*^9}},
+ CellLabel->
+  "Out[1217]=",ExpressionUUID->"bc311ab5-03e5-4ebd-bd48-397a5fb46fa1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Series", "[", 
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{
+      RowBox[{"Coefficient", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+         RowBox[{"\[Tau]inf", "[", 
+          RowBox[{
+          "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}],
+           "]"}], "]"}], ",", "\[Xi]1", ",", "0"}], "]"}], ",", "\[Xi]2", ",",
+       "0"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "0"}], "}"}]}], "]"}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8296545524271517`*^9, 3.829654588831647*^9}},
+ CellLabel->
+  "In[1186]:=",ExpressionUUID->"77001d2c-6c53-4307-af4e-0b3273c4a307"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"8", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], "\[Epsilon]"], "+", 
+      RowBox[{"8", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 
+         8] $CellContext`t^2, $CellContext`t ($CellContext`\[Nu]1 - \
+$CellContext`\[Nu]2), Complex[0, 8] 
+       Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+     Editable->False]], " ", 
+   InterpretationBox[
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+      RowBox[{"5", "/", "2"}]]],
+    SeriesData[$CellContext`\[Epsilon], 0, {}, -10, -10, 4],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"16", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], 
+       RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 16] $CellContext`t^2, 
+       Rational[
+        1, 2] $CellContext`t ($CellContext`\[Nu]1 - $CellContext`\[Nu]2)}, -2,
+       2, 1],
+     Editable->False]], " ", 
+   InterpretationBox[
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+      RowBox[{"9", "/", "4"}]]],
+    SeriesData[$CellContext`\[Epsilon], 0, {}, -9, -9, 4],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"8", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], "\[Epsilon]"], "+", 
+      RowBox[{"8", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 
+         8] $CellContext`t^2, $CellContext`t ($CellContext`\[Nu]1 - \
+$CellContext`\[Nu]2), Complex[0, 8] 
+       Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+     Editable->False]], " ", 
+   InterpretationBox[
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+      RowBox[{"3", "/", "2"}]]],
+    SeriesData[$CellContext`\[Epsilon], 0, {}, -6, -6, 4],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"8", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], "\[Epsilon]"], "+", 
+      RowBox[{"8", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 
+         8] $CellContext`t^2, $CellContext`t ($CellContext`\[Nu]1 - \
+$CellContext`\[Nu]2), Complex[0, 8] 
+       Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+     Editable->False]], " ", 
+   InterpretationBox[
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+      RowBox[{"5", "/", "4"}]]],
+    SeriesData[$CellContext`\[Epsilon], 0, {}, -5, -5, 4],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"16", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], 
+       RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 16] $CellContext`t^2, 
+       Rational[
+        1, 2] $CellContext`t ($CellContext`\[Nu]1 - $CellContext`\[Nu]2)}, -2,
+       2, 1],
+     Editable->False]], " ", 
+   RowBox[{"(", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       InterpretationBox[
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Xi]2", "]"}], "2"],
+          SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1],
+          Editable->False], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Xi]1", "]"}], "2"],
+          SeriesData[$CellContext`\[Xi]1, 0, {}, 0, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Xi]1, 0, {
+          SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1],
+        Editable->False], 
+       SuperscriptBox["\[Epsilon]", 
+        RowBox[{"17", "/", "4"}]]], "+", 
+      InterpretationBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+         RowBox[{"9", "/", "4"}]]],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -17, -9, 4],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+       SeriesData[$CellContext`\[Xi]1, 0, {
+         SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1]}, -17, -9,
+       4],
+     Editable->False], ")"}]}], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["t", "2"], 
+       RowBox[{"16", " ", 
+        SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+      FractionBox[
+       RowBox[{"t", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Nu]1", "-", "\[Nu]2"}], ")"}]}], 
+       RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+      Rational[1, 16] $CellContext`t^2, 
+       Rational[
+        1, 2] $CellContext`t ($CellContext`\[Nu]1 - $CellContext`\[Nu]2)}, -2,
+       2, 1],
+     Editable->False]], " ", 
+   RowBox[{"(", 
+    InterpretationBox[
+     RowBox[{
+      FractionBox[
+       InterpretationBox[
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Xi]2", "]"}], "2"],
+          SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1],
+          Editable->False], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Xi]1", "]"}], "2"],
+          SeriesData[$CellContext`\[Xi]1, 0, {}, 0, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Xi]1, 0, {
+          SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1],
+        Editable->False], 
+       SuperscriptBox["\[Epsilon]", 
+        RowBox[{"13", "/", "4"}]]], "+", 
+      InterpretationBox[
+       FractionBox["1", 
+        SuperscriptBox[
+         RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+         RowBox[{"9", "/", "4"}]]],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, -13, -9, 4],
+       Editable->False]}],
+     SeriesData[$CellContext`\[Epsilon], 0, {
+       SeriesData[$CellContext`\[Xi]1, 0, {
+         SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1]}, -13, -9,
+       4],
+     Editable->False], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.829654571594522*^9, 3.829654592710499*^9}, 
+   3.8296546573840227`*^9},
+ CellLabel->
+  "Out[1186]=",ExpressionUUID->"b916884b-dbbe-4fad-87ed-69aefb2473ed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Out", "[", "1104", "]"}], "/", 
+   RowBox[{"Out", "[", "1096", "]"}]}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829653764552239*^9, 3.829653774560987*^9}, {
+  3.8296538085179234`*^9, 3.829653810281291*^9}},
+ CellLabel->
+  "In[1105]:=",ExpressionUUID->"a016f320-8ddf-41d6-9912-f0adaea6d13e"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.8296537723120317`*^9, 3.8296537748868637`*^9}, 
+   3.8296538107247353`*^9},
+ CellLabel->
+  "Out[1105]=",ExpressionUUID->"2a77309c-2b07-4630-9ab0-958252e41b5a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Coefficient", "[", 
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{
+      RowBox[{
+       FractionBox[
+        RowBox[{"1", " "}], "4"], 
+       SuperscriptBox["t", "2"], " ", 
+       SuperscriptBox["\[Epsilon]", 
+        RowBox[{"-", "2"}]], 
+       SuperscriptBox[
+        RowBox[{"\[Tau]inf1", "[", 
+         RowBox[{
+         "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}], 
+         "]"}], "2"]}], ",", "\[Xi]1", ",", "1"}], "]"}], ",", "\[Xi]2", ",", 
+    
+    RowBox[{"-", "1"}]}], "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8296536360255527`*^9, 3.829653651849173*^9}, 
+   3.829653682732243*^9},
+ CellLabel->
+  "In[1088]:=",ExpressionUUID->"1dcdf600-4a65-48c5-b055-d9bb28ade389"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["t", "2"], "+", 
+       RowBox[{"4", " ", "t", " ", "\[Epsilon]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], ")"}]}], 
+       "+", 
+       RowBox[{"16", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+        SuperscriptBox["\[Epsilon]", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["\[Epsilon]", "2"]}]]], " ", 
+    SuperscriptBox["t", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "2"}], "+", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+        SuperscriptBox["\[Nu]1", "2"], "-", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+        SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "+", 
+      RowBox[{"\[Epsilon]", " ", 
+       RowBox[{
+        SubscriptBox["Binf", "1"], "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}]}], ")"}],
+     " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["t", "2"], "+", 
+      RowBox[{"t", " ", "\[Epsilon]", " ", 
+       RowBox[{
+        SubscriptBox["Binf", "1"], "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["\[Epsilon]", "2"], " ", 
+       RowBox[{
+        SubscriptBox["Binf", "2"], "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}]}], ")"}]}], 
+   RowBox[{"2", " ", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{"3", "/", "2"}]]}]]}]], "Output",
+ CellChangeTimes->{{3.8296536383000793`*^9, 3.829653653634533*^9}, 
+   3.8296536837471952`*^9},
+ CellLabel->
+  "Out[1088]=",ExpressionUUID->"e9c9a004-0343-4e53-a76a-27db6873f7e0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Series", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"0", "==", 
+         RowBox[{"Coefficient", "[", 
+          RowBox[{
+           RowBox[{"Coefficient", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+               RowBox[{"\[Tau]inf", "[", 
+                RowBox[{
+                "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+                 "t"}], "]"}], "]"}], "-", 
+              RowBox[{
+               FractionBox[
+                RowBox[{"1", " "}], "4"], 
+               SuperscriptBox["t", "2"], " ", 
+               SuperscriptBox["\[Epsilon]", 
+                RowBox[{"-", "2"}]], 
+               SuperscriptBox[
+                RowBox[{"\[Tau]inf1", "[", 
+                 RowBox[{
+                 "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",",
+                   "t"}], "]"}], "2"]}]}], ",", "\[Xi]1", ",", 
+             RowBox[{"m", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", "\[Xi]2", ",", 
+           RowBox[{"m", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "//", "Normal"}], ",", 
+       
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Rho]1", ">", "0"}], ",", 
+       RowBox[{"\[Rho]2", ">", "0"}], ",", 
+       RowBox[{"\[Nu]1", ">", "0"}], ",", 
+       RowBox[{"\[Nu]2", ">", "0"}], ",", 
+       RowBox[{"t", ">", "0"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", ",", 
+   
+   RowBox[{"{", 
+    RowBox[{"m", ",", "A1RootLattice"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8296519084891253`*^9, 3.829651922702405*^9}, {
+  3.829652292393911*^9, 3.829652295727824*^9}, {3.8296529463189077`*^9, 
+  3.829652966830558*^9}, {3.829653208618191*^9, 3.829653209204267*^9}, {
+  3.829653386486635*^9, 3.829653410980013*^9}},
+ CellLabel->
+  "In[1066]:=",ExpressionUUID->"af835228-7d6f-4c99-907b-d18b16a57d02"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, 1, 1, 1],
+       Editable->False]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+            ")"}]}], 
+          RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, 
+          Rational[1, 2] $CellContext`t (
+           Complex[0, -1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+          Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      InterpretationBox[
+       SqrtBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, 1, 1, 2],
+       Editable->False]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, 2, 2, 1],
+       Editable->False]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], "3"],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, 3, 3, 1],
+       Editable->False]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+            ")"}]}], 
+          RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, 
+          Rational[1, 2] $CellContext`t (
+           Complex[0, -1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+          Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      InterpretationBox[
+       SuperscriptBox[
+        RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+        RowBox[{"3", "/", "2"}]],
+       SeriesData[$CellContext`\[Epsilon], 0, {}, 3, 3, 2],
+       Editable->False]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+            ")"}]}], 
+          RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, 
+          Rational[1, 2] $CellContext`t (
+           Complex[0, -1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+          Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["t", 
+               RowBox[{
+                FractionBox["1", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"4", "+", 
+                  SuperscriptBox["\[Nu]1", "2"], "+", 
+                  RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                  SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], ")"}]}], 
+           
+           SuperscriptBox["\[Epsilon]", 
+            RowBox[{"3", "/", "2"}]]]}], "+", 
+         InterpretationBox[
+          SqrtBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -3, 1, 2],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {(-2) $CellContext`t^(
+            Rational[1, 2] (4 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2]}, -3, 1, 2],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["t", 
+             RowBox[{
+              FractionBox["1", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"4", "+", 
+                SuperscriptBox["\[Nu]1", "2"], "+", 
+                RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], 
+           SuperscriptBox["\[Epsilon]", "2"]]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 1, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {-$CellContext`t^(
+            Rational[1, 2] (4 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2]}, -2, 1, 1],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["t", 
+               RowBox[{
+                FractionBox["1", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  SuperscriptBox["\[Nu]1", "2"], "+", 
+                  RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                  SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", "\[Nu]1", 
+              " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], ")"}]}], 
+           "\[Epsilon]"]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {(-2) $CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`\[Nu]1 $CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] \
+$CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2]}, -1, 1, 1],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["t", 
+               RowBox[{
+                FractionBox["1", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  SuperscriptBox["\[Nu]1", "2"], "+", 
+                  RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                  SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", "\[Nu]2", 
+              " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], ")"}]}], 
+           "\[Epsilon]"]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {(-2) $CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`\[Nu]2 $CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] \
+$CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2]}, -1, 1, 1],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+            ")"}]}], 
+          RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, 
+          Rational[1, 2] $CellContext`t (
+           Complex[0, -1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+          Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["t", 
+               RowBox[{
+                FractionBox["1", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  SuperscriptBox["\[Nu]1", "2"], "+", 
+                  RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                  SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+              RowBox[{
+               SubscriptBox["Binf", "1"], "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], ")"}]}], 
+           SqrtBox["\[Epsilon]"]]}], "+", 
+         InterpretationBox[
+          SqrtBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 2],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {(-2) $CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2] 
+          Subscript[$CellContext`Binf, 
+            1][$CellContext`\[Nu]1, $CellContext`\[Nu]1]}, -1, 1, 2],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["t", 
+             RowBox[{
+              FractionBox["1", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                SuperscriptBox["\[Nu]1", "2"], "+", 
+                RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+            RowBox[{
+             SubscriptBox["Binf", "1"], "[", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "\[Epsilon]"]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {-$CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2] 
+          Subscript[$CellContext`Binf, 
+            1][$CellContext`\[Nu]1, $CellContext`\[Nu]1]}, -1, 1, 1],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+            ")"}]}], 
+          RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, 
+          Rational[1, 2] $CellContext`t (
+           Complex[0, -1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+          Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["t", 
+               RowBox[{
+                FractionBox["1", "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  SuperscriptBox["\[Nu]1", "2"], "+", 
+                  RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                  SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+              RowBox[{"cC", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+              RowBox[{
+               SubscriptBox["Binf", "1"], "[", 
+               RowBox[{
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+                RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], ")"}]}], 
+           
+           SqrtBox["\[Epsilon]"]]}], "+", 
+         InterpretationBox[
+          SqrtBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 2],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {(-2) $CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2] 
+          Subscript[$CellContext`Binf, 1][
+           Complex[0, 1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]1]}, -1, 1, 2],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      RowBox[{"(", 
+       InterpretationBox[
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["t", 
+             RowBox[{
+              FractionBox["1", "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                SuperscriptBox["\[Nu]1", "2"], "+", 
+                RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+            RowBox[{"cC", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+            RowBox[{
+             SubscriptBox["Binf", "1"], "[", 
+             RowBox[{
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], 
+           "\[Epsilon]"]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 
+         0, {-$CellContext`t^(
+            Rational[1, 2] (2 + $CellContext`\[Nu]1^2 + 
+             Complex[0, 
+                1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+           Complex[0, -1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]2] 
+          Subscript[$CellContext`Binf, 1][
+           Complex[0, 1] + $CellContext`\[Nu]1, 
+            Complex[0, 1] + $CellContext`\[Nu]1]}, -1, 1, 1],
+        Editable->False], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       InterpretationBox[
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], 
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+         FractionBox[
+          RowBox[{"t", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["\[ImaginaryI]", "2"]}], "+", "\[Nu]1"}], ")"}]}], 
+          "\[Epsilon]"], "+", 
+         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+         InterpretationBox[
+          SuperscriptBox[
+           RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+          SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+          Editable->False]}],
+        SeriesData[$CellContext`\[Epsilon], 0, {
+         Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+             Rational[-1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+          Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+        Editable->False]], " ", 
+      SuperscriptBox["t", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Nu]1", "2"], "+", 
+          RowBox[{"\[Nu]2", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}], ")"}]}]}], ")"}]}]], 
+      " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "-", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+        SuperscriptBox["\[Nu]1", "2"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Nu]2"}], "-", 
+        RowBox[{"2", " ", "\[Nu]1", " ", "\[Nu]2"}], "+", 
+        SuperscriptBox["\[Nu]2", "2"], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "\[ImaginaryI]"}], "+", "\[Nu]1", "+", 
+           "\[Nu]2"}], ")"}], " ", 
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], "-", 
+        RowBox[{
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "2"}], " ", "\[ImaginaryI]"}], "+", "\[Nu]1", "+",
+               "\[Nu]2"}], ")"}]}], "+", 
+           RowBox[{
+            SubscriptBox["Binf", "1"], "[", 
+            RowBox[{
+             RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+             RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], ")"}]}], 
+        "-", 
+        RowBox[{
+         SubscriptBox["Binf", "2"], "[", 
+         RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], ")"}]}]}], "\[Equal]", 
+    "0"}], ",", "True", ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+         SeriesData[$CellContext`\[Epsilon], 0, {}, 1, 1, 1],
+         Editable->False]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], 
+              ")"}]}], 
+            RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, 
+            Rational[1, 2] $CellContext`t (
+             Complex[0, 1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+            Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        InterpretationBox[
+         SqrtBox[
+          RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+         SeriesData[$CellContext`\[Epsilon], 0, {}, 1, 1, 2],
+         Editable->False]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+         SeriesData[$CellContext`\[Epsilon], 0, {}, 2, 2, 1],
+         Editable->False]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Epsilon]", "]"}], "3"],
+         SeriesData[$CellContext`\[Epsilon], 0, {}, 3, 3, 1],
+         Editable->False]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], 
+              ")"}]}], 
+            RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, 
+            Rational[1, 2] $CellContext`t (
+             Complex[0, 1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+            Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Epsilon]", "]"}], 
+          RowBox[{"3", "/", "2"}]],
+         SeriesData[$CellContext`\[Epsilon], 0, {}, 3, 3, 2],
+         Editable->False]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"4", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+            SuperscriptBox["\[Epsilon]", "2"]], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 1, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 
+           0, {$CellContext`t^(
+              Rational[1, 2] (4 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2]}, -2, 1, 1],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], 
+              ")"}]}], 
+            RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, 
+            Rational[1, 2] $CellContext`t (
+             Complex[0, 1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+            Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{"2", " ", 
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"4", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+            SuperscriptBox["\[Epsilon]", 
+             RowBox[{"3", "/", "2"}]]], "+", 
+           InterpretationBox[
+            SqrtBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -3, 1, 2],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           2 $CellContext`t^(
+              Rational[1, 2] (4 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2]}, -3, 1, 2],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{"2", " ", 
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", "\[Nu]1", 
+             " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+            "\[Epsilon]"], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           2 $CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`\[Nu]1 $CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] \
+$CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2]}, -1, 1, 1],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{"2", " ", 
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", "\[Nu]2", 
+             " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+            "\[Epsilon]"], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           2 $CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`\[Nu]2 $CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] \
+$CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2]}, -1, 1, 1],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+             RowBox[{
+              SubscriptBox["Binf", "1"], "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "\[Epsilon]"], "+", 
+           
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 
+           0, {$CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2] 
+            Subscript[$CellContext`Binf, 
+              1][$CellContext`\[Nu]1, $CellContext`\[Nu]1]}, -1, 1, 1],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], 
+              ")"}]}], 
+            RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, 
+            Rational[1, 2] $CellContext`t (
+             Complex[0, 1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+            Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{"2", " ", 
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+             RowBox[{
+              SubscriptBox["Binf", "1"], "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], 
+            SqrtBox["\[Epsilon]"]], "+", 
+           InterpretationBox[
+            SqrtBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 2],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           2 $CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2] 
+            Subscript[$CellContext`Binf, 
+              1][$CellContext`\[Nu]1, $CellContext`\[Nu]1]}, -1, 1, 2],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+             RowBox[{
+              SubscriptBox["Binf", "1"], "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+            "\[Epsilon]"], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "1"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 
+           0, {$CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2] 
+            Subscript[$CellContext`Binf, 1][
+             Complex[0, -1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]1]}, -1, 1, 1],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], 
+              ")"}]}], 
+            RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, 
+            Rational[1, 2] $CellContext`t (
+             Complex[0, 1] + $CellContext`\[Nu]1 - $CellContext`\[Nu]2), 
+            Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        RowBox[{"(", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            RowBox[{"2", " ", 
+             SuperscriptBox["t", 
+              RowBox[{
+               FractionBox["1", "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+                 SuperscriptBox["\[Nu]1", "2"], "-", 
+                 RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+                 SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+             RowBox[{"cC", "[", 
+              RowBox[{
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+             RowBox[{
+              SubscriptBox["Binf", "1"], "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+            SqrtBox["\[Epsilon]"]], "+", 
+           InterpretationBox[
+            SqrtBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 2],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           2 $CellContext`t^(
+              Rational[1, 2] (2 + 
+               Complex[0, 1] $CellContext`\[Nu]1 + $CellContext`\[Nu]1^2 + 
+               Complex[
+                 0, -1] $CellContext`\[Nu]2 + $CellContext`\[Nu]2^2)) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+             Complex[0, 1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]2] 
+            Subscript[$CellContext`Binf, 1][
+             Complex[0, -1] + $CellContext`\[Nu]1, 
+              Complex[0, -1] + $CellContext`\[Nu]1]}, -1, 1, 2],
+          Editable->False], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox[
+            SuperscriptBox["t", "2"], 
+            RowBox[{"8", " ", 
+             SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+           FractionBox[
+            RowBox[{"t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["\[ImaginaryI]", "2"], "+", "\[Nu]1"}], ")"}]}], 
+            "\[Epsilon]"], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}], "+", 
+           InterpretationBox[
+            SuperscriptBox[
+             RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+            SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+            Editable->False]}],
+          
+          SeriesData[$CellContext`\[Epsilon], 0, {
+           Rational[1, 8] $CellContext`t^2, $CellContext`t (Complex[0, 
+               Rational[1, 2]] + $CellContext`\[Nu]1), Complex[0, 2] 
+            Pi ($CellContext`\[Rho]1 - $CellContext`\[Rho]2)}, -2, 2, 1],
+          Editable->False]], " ", 
+        SuperscriptBox["t", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+            SuperscriptBox["\[Nu]1", "2"], "+", 
+            RowBox[{"\[Nu]2", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}]}]}], 
+           ")"}]}]], " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Nu]1"}], "-", 
+          SuperscriptBox["\[Nu]1", "2"], "+", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+          RowBox[{"2", " ", "\[Nu]1", " ", "\[Nu]2"}], "-", 
+          SuperscriptBox["\[Nu]2", "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "2"}], " ", "\[ImaginaryI]"}], "+", "\[Nu]1", "+", 
+             "\[Nu]2"}], ")"}], " ", 
+           RowBox[{
+            SubscriptBox["Binf", "1"], "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{
+            SubscriptBox["Binf", "1"], "[", 
+            RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", "\[ImaginaryI]"}], "+", "\[Nu]1", "+", 
+                "\[Nu]2"}], ")"}]}], "+", 
+             RowBox[{
+              SubscriptBox["Binf", "1"], "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+            ")"}]}], "+", 
+          RowBox[{
+           SubscriptBox["Binf", "2"], "[", 
+           RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], ")"}]}]}], ")"}]}], 
+    "\[Equal]", "0"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8296520006296263`*^9, 3.829652289986025*^9, 
+  3.829652338764455*^9, 3.829652714762394*^9, 3.8296528298465853`*^9, 
+  3.82965292993924*^9, 3.8296529955155277`*^9, 3.829653234203383*^9, 
+  3.829653383924674*^9, 3.829653446650016*^9},
+ CellLabel->
+  "Out[1066]=",ExpressionUUID->"96adee37-d595-4af1-8e5b-a09b079982c8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Coefficient", "[", 
+  RowBox[{
+   RowBox[{"Coefficient", "[", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+         RowBox[{"\[Tau]inf", "[", 
+          RowBox[{
+          "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}],
+           "]"}], "]"}], "-", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"1", " "}], "4"], 
+         SuperscriptBox["t", "2"], " ", 
+         SuperscriptBox["\[Epsilon]", 
+          RowBox[{"-", "2"}]], 
+         SuperscriptBox[
+          RowBox[{"\[Tau]inf1", "[", 
+           RowBox[{
+           "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", 
+            "t"}], "]"}], "2"]}]}], ",", "\[Xi]1", ",", "1"}], "]"}], ",", 
+     "\[Xi]2", ",", 
+     RowBox[{"-", "1"}]}], "]"}], ",", "\[Epsilon]", ",", 
+   RowBox[{"-", "2"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.829653486078864*^9, 3.829653525233108*^9}},
+ CellLabel->
+  "In[1068]:=",ExpressionUUID->"97ee7abd-cf64-4a97-92a1-4180ea2d0ed0"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "4"], " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["t", "2"], 
+     RowBox[{"8", " ", 
+      SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+    FractionBox[
+     RowBox[{"t", " ", "\[Nu]1"}], 
+     RowBox[{"2", " ", "\[Epsilon]"}]], "+", 
+    FractionBox[
+     RowBox[{"t", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], 
+     RowBox[{"2", " ", "\[Epsilon]"}]], "-", 
+    RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+  SuperscriptBox["t", 
+   RowBox[{
+    FractionBox["5", "2"], "+", 
+    FractionBox[
+     SuperscriptBox["\[Nu]1", "2"], "4"], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     SuperscriptBox["\[Nu]2", "2"], "4"], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], "2"]}]}]], 
+  " ", 
+  RowBox[{"cC", "[", 
+   RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+  RowBox[{"cC", "[", 
+   RowBox[{
+    RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+    RowBox[{
+     RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{{3.829653505948222*^9, 3.8296535356183777`*^9}},
+ CellLabel->
+  "Out[1068]=",ExpressionUUID->"a26df658-f15c-4111-84cf-cd9479b1067c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Out", "[", "1058", "]"}], "//", "Normal"}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829653063411026*^9, 3.829653067094743*^9}, {
+  3.829653162736287*^9, 3.829653185967537*^9}, {3.829653251701528*^9, 
+  3.829653252170644*^9}},
+ CellLabel->
+  "In[1059]:=",ExpressionUUID->"15314331-1b8f-491c-aaf6-306c98740b92"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      SqrtBox["\[Epsilon]"]], 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["t", "2"], 
+         RowBox[{"8", " ", 
+          SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+        FractionBox[
+         RowBox[{"t", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1", "-", "\[Nu]2"}], 
+           ")"}]}], "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["t", 
+       RowBox[{
+        FractionBox["1", "2"], "-", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+        SuperscriptBox["\[Nu]1", "2"], "+", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+        SuperscriptBox["\[Nu]2", "2"]}]], " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "t"}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "t"}], "-", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "\[Epsilon]"}], "-", 
+        RowBox[{"4", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "\[Epsilon]", " ", "\[Nu]2"}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{"t", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]]}], 
+          ")"}], " ", "\[Epsilon]", " ", 
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{"t", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]]}], 
+          ")"}], " ", "\[Epsilon]", " ", 
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}]}], ")"}]}]}], 
+    "\[Equal]", "0"}], ",", "True", ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      SqrtBox["\[Epsilon]"]], 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["t", "2"], 
+         RowBox[{"8", " ", 
+          SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+        FractionBox[
+         RowBox[{"t", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], ")"}]}], 
+         "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["t", 
+       RowBox[{
+        FractionBox["1", "2"], "+", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "+", 
+        SuperscriptBox["\[Nu]1", "2"], "-", 
+        RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}], "+", 
+        SuperscriptBox["\[Nu]2", "2"]}]], " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "t"}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "t"}], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "\[Epsilon]"}], "-", 
+        RowBox[{"4", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]], " ", 
+         "\[Epsilon]", " ", "\[Nu]2"}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{"t", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]]}], 
+          ")"}], " ", "\[Epsilon]", " ", 
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            FractionBox[
+             RowBox[{"t", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Nu]1", "+", "\[Nu]2"}], ")"}]}], "\[Epsilon]"]]}], 
+          ")"}], " ", "\[Epsilon]", " ", 
+         RowBox[{
+          SubscriptBox["Binf", "1"], "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}]}], 
+       ")"}]}]}], "\[Equal]", "0"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.829653067746138*^9, {3.8296531661551933`*^9, 3.829653186598935*^9}, 
+   3.829653253920182*^9},
+ CellLabel->
+  "Out[1059]=",ExpressionUUID->"6d526553-2fd4-4cf9-b333-09e7fd1f0d06"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Series", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Hirota2", "[", "t", "]"}], "[", 
+        RowBox[{"\[Tau]inf", "[", 
+         RowBox[{
+         "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}], 
+         "]"}], "]"}], "-", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"1", " "}], "4"], 
+        SuperscriptBox["t", "2"], " ", 
+        SuperscriptBox["\[Epsilon]", 
+         RowBox[{"-", "2"}]], 
+        SuperscriptBox[
+         RowBox[{"\[Tau]inf1", "[", 
+          RowBox[{
+          "\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}],
+           "]"}], "2"]}]}], ",", "\[Xi]1", ",", "1"}], "]"}], "//", 
+    "Normal"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Epsilon]", ",", "0", ",", "0"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.829652382166279*^9, 3.829652383849255*^9}},
+ CellLabel->
+  "In[1022]:=",ExpressionUUID->"57e1bf74-1242-4bff-864c-07b919144c75"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["\[ExponentialE]", 
+   InterpretationBox[
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["t", "2"], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["\[Epsilon]", "2"]}]], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", " ", "t"}], "+", 
+       RowBox[{"2", " ", "t", " ", "\[Nu]1"}]}], "\[Epsilon]"], "-", 
+     RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+      SeriesData[$CellContext`\[Epsilon], 0, {}, -2, 2, 1],
+      Editable->False]}],
+    SeriesData[$CellContext`\[Epsilon], 0, {
+     Rational[1, 8] $CellContext`t^2, Complex[0, 1] $CellContext`t + 
+      2 $CellContext`t $CellContext`\[Nu]1, Complex[0, -2] 
+      Pi (-$CellContext`\[Rho]1 + $CellContext`\[Rho]2)}, -2, 2, 1],
+    Editable->False]], " ", 
+  RowBox[{"(", 
+   InterpretationBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["t", 
+        RowBox[{
+         FractionBox["3", "2"], "+", 
+         FractionBox[
+          SuperscriptBox["\[Nu]1", "2"], "2"], "+", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"]}], "+", 
+         FractionBox[
+          SuperscriptBox["\[Nu]2", "2"], "2"], "+", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], 
+           "2"]}]}]], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", 
+         RowBox[{"2", " ", "\[Nu]2"}]}], ")"}], " ", 
+       RowBox[{"cC", "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+       RowBox[{"cC", "[", 
+        RowBox[{
+         RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+      RowBox[{"\[Xi]2", " ", 
+       SqrtBox["\[Epsilon]"]}]], "+", 
+     InterpretationBox[
+      SqrtBox[
+       RowBox[{"O", "[", "\[Epsilon]", "]"}]],
+      SeriesData[$CellContext`\[Epsilon], 0, {}, -1, 1, 2],
+      Editable->False]}],
+    SeriesData[$CellContext`\[Epsilon], 
+     0, {$CellContext`t^(Rational[3, 2] + 
+        Rational[1, 2] $CellContext`\[Nu]1^2 + 
+        Rational[1, 2] (Complex[0, 1] + $CellContext`\[Nu]1)^2 + 
+        Rational[1, 2] $CellContext`\[Nu]2^2 + 
+        Rational[1, 2] (Complex[0, -1] + $CellContext`\[Nu]2)^2) (
+       Complex[0, -1] + 
+       2 $CellContext`\[Nu]2) $CellContext`\[Xi]2^(-1) \
+$CellContext`cC[$CellContext`\[Nu]1, $CellContext`\[Nu]2] $CellContext`cC[
+       Complex[0, 1] + $CellContext`\[Nu]1, 
+        Complex[0, -1] + $CellContext`\[Nu]2]}, -1, 1, 2],
+    Editable->False], ")"}]}]], "Output",
+ CellChangeTimes->{3.82965239308845*^9, 3.8296524949846697`*^9},
+ CellLabel->
+  "Out[1022]=",ExpressionUUID->"d7181cea-b4b8-411c-8542-3754acad7edc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", 
+       RowBox[{"2", " ", "\[Nu]2"}]}], ")"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+    SuperscriptBox[
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], "2"]], "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"cC", "[", 
+      RowBox[{"x_", ",", "y_"}], "]"}], "\[Rule]", 
+     RowBox[{
+      RowBox[{"G", "[", 
+       RowBox[{"1", "+", 
+        RowBox[{"I", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "-", "y"}], ")"}]}]}], "]"}], 
+      SuperscriptBox["2", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", "y"}], ")"}], "^", "2"}]], 
+      SuperscriptBox["E", 
+       RowBox[{"I", " ", "\[Pi]", " ", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"x", "+", "y"}], ")"}], "2"], "/", "4"}]}]], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"2", "\[Pi]"}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "I"}], " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "+", "y"}], ")"}], "/", "2"}]}]]}]}], "}"}]}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.829652504724268*^9, 3.829652583471963*^9}, {
+  3.829652646399828*^9, 3.8296526658902273`*^9}},
+ CellLabel->
+  "In[1034]:=",ExpressionUUID->"57d64848-23e9-43eb-9618-243afbf1da8b"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox["2", 
+    RowBox[{"4", " ", "\[ImaginaryI]", " ", 
+     RowBox[{"(", 
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], ")"}]}]], " ", 
+   
+   RowBox[{"(", 
+    RowBox[{"\[ImaginaryI]", "+", "\[Nu]1", "-", "\[Nu]2"}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Nu]2"}]}], ")"}]}], 
+  SuperscriptBox[
+   RowBox[{"\[CapitalGamma]", "[", 
+    RowBox[{
+     RowBox[{"\[ImaginaryI]", " ", "\[Nu]1"}], "-", 
+     RowBox[{"\[ImaginaryI]", " ", "\[Nu]2"}]}], "]"}], "2"]]], "Output",
+ CellChangeTimes->{{3.829652539723703*^9, 3.829652583805419*^9}, {
+  3.8296526473303127`*^9, 3.829652666311915*^9}},
+ CellLabel->
+  "Out[1034]=",ExpressionUUID->"02bcf662-9122-41e6-a543-6fa6e05c1f0c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]"}], ")"}], " ", 
+   SuperscriptBox[
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]"}], "]"}], "2"]}], "-", 
+  RowBox[{"4", " ", 
+   RowBox[{"cC", "[", "\[Nu]", "]"}], " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], " ", "\[ImaginaryI]"}], "+", "\[Nu]"}], 
+    "]"}]}]}]], "Input",ExpressionUUID->"df424ca7-3436-40f3-a925-\
+13a143ebabf0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Tau]inf1", "[", 
+  RowBox[{"\[Rho]1", ",", "\[Rho]2", ",", "\[Nu]1", ",", "\[Nu]2", ",", "t"}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.829652415119728*^9, 3.829652430341943*^9}},
+ CellLabel->
+  "In[1021]:=",ExpressionUUID->"1e3937e0-43e7-4543-8083-e9d16804084d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   InterpretationBox[
+    RowBox[{
+     RowBox[{"(", 
+      InterpretationBox[
+       RowBox[{
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Xi]2", "]"}], "2"],
+         SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1],
+         Editable->False], "+", 
+        InterpretationBox[
+         SuperscriptBox[
+          RowBox[{"O", "[", "\[Xi]1", "]"}], "2"],
+         SeriesData[$CellContext`\[Xi]1, 0, {}, 0, 2, 1],
+         Editable->False]}],
+       SeriesData[$CellContext`\[Xi]1, 0, {
+         SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1],
+       Editable->False], ")"}], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       RowBox[{"O", "[", "\[Epsilon]", "]"}], "2"],
+      SeriesData[$CellContext`\[Epsilon], 0, {}, 0, 2, 1],
+      Editable->False]}],
+    SeriesData[$CellContext`\[Epsilon], 0, {
+      SeriesData[$CellContext`\[Xi]1, 0, {
+        SeriesData[$CellContext`\[Xi]2, 0, {}, 2, 2, 1]}, 0, 2, 1]}, 0, 2, 1],
+    
+    Editable->False], ")"}], "+", 
+  RowBox[{
+   FractionBox["1", 
+    SuperscriptBox["\[Epsilon]", 
+     RowBox[{"1", "/", "4"}]]], 
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      SuperscriptBox["t", "2"], 
+      RowBox[{"16", " ", 
+       SuperscriptBox["\[Epsilon]", "2"]}]]], " ", 
+    SuperscriptBox["t", 
+     RowBox[{"1", "/", "4"}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        FractionBox[
+         RowBox[{"t", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+       SuperscriptBox["t", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[Nu]1", "2"], "+", 
+           SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]], " ", 
+       RowBox[{"cC", "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+           "\[Epsilon]"], "+", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+        SuperscriptBox["t", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}], "2"], 
+            "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}], ")"}], "2"]}], 
+           ")"}]}]], " ", "\[Epsilon]", " ", "\[Xi]2", " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "\[Xi]1"], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"],
+           "+", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+        SuperscriptBox["t", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], "2"]}],
+            ")"}]}]], " ", "\[Epsilon]", " ", "\[Xi]1", " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+       "\[Xi]2"], "+", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        FractionBox[
+         RowBox[{"t", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+       SuperscriptBox["t", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["\[Nu]1", "2"], "+", 
+            SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]}]], " ", "\[Epsilon]", 
+       " ", 
+       RowBox[{"cC", "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+       RowBox[{
+        SubscriptBox["Binf", "1"], "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"],
+           "+", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+        SuperscriptBox["t", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{
+           FractionBox["1", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], 
+              "2"]}], ")"}]}]}]], " ", 
+        SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]1", " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+       "\[Xi]2"], "-", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+           "\[Epsilon]"], "+", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+        SuperscriptBox["t", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{
+           FractionBox["1", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}], "2"], 
+             "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}], ")"}], "2"]}], 
+            ")"}]}]}]], " ", 
+        SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]2", " ", 
+        RowBox[{"cC", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+        RowBox[{
+         SubscriptBox["Binf", "1"], "[", 
+         RowBox[{
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], "\[Xi]1"], "+", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        FractionBox[
+         RowBox[{"t", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+       SuperscriptBox["t", 
+        RowBox[{
+         RowBox[{"-", "2"}], "+", 
+         RowBox[{
+          FractionBox["1", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["\[Nu]1", "2"], "+", 
+            SuperscriptBox["\[Nu]2", "2"]}], ")"}]}]}]], " ", 
+       SuperscriptBox["\[Epsilon]", "2"], " ", 
+       RowBox[{"cC", "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+       RowBox[{
+        SubscriptBox["Binf", "2"], "[", 
+        RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}]}], ")"}]}]}]}]], "Output",
+ CellChangeTimes->{{3.829652410631816*^9, 3.8296524307454967`*^9}, 
+   3.829652485610712*^9},
+ CellLabel->
+  "Out[1021]=",ExpressionUUID->"28468063-8f51-4c49-9b44-83a253ff924b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], 
+        RowBox[{"m", ".", "m"}]}], "+", "i"}], "\[LessEqual]", "nN"}], ",", 
+     RowBox[{
+      SuperscriptBox["\[Epsilon]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", "2"}], 
+         RowBox[{"m", ".", "m"}]}], "+", "i"}]], 
+      SuperscriptBox["\[Xi]1", 
+       RowBox[{"m", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]], 
+      SuperscriptBox["\[Xi]2", 
+       RowBox[{"m", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]], 
+      SuperscriptBox["E", 
+       RowBox[{" ", 
+        RowBox[{"2", "\[Pi]", " ", "I", " ", 
+         RowBox[{"m", ".", 
+          RowBox[{"{", 
+           RowBox[{"\[Rho]1", ",", "\[Rho]2"}], "}"}]}]}]}]], 
+      SuperscriptBox["r", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", "2"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+           RowBox[{"I", " ", "m"}]}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+           RowBox[{"I", " ", "m"}]}], ")"}]}], "-", "i"}]], 
+      SuperscriptBox["E", 
+       RowBox[{" ", 
+        RowBox[{
+         SuperscriptBox["\[Epsilon]", 
+          RowBox[{"-", "1"}]], " ", "r", 
+         RowBox[{
+          RowBox[{"(", " ", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+            RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0"}], "}"}]}]}]}]], 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[Nu]1", "+", 
+         RowBox[{"I", " ", 
+          RowBox[{"m", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+        RowBox[{"\[Nu]2", "+", 
+         RowBox[{"I", " ", 
+          RowBox[{"m", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}], 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"i", "\[Equal]", "0"}], ",", "1", ",", 
+        RowBox[{
+         SubscriptBox["Binf", "i"], "[", 
+         RowBox[{
+          RowBox[{"\[Nu]1", "+", 
+           RowBox[{"I", " ", 
+            RowBox[{"m", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}], ",", 
+          RowBox[{"\[Nu]1", "+", 
+           RowBox[{"I", " ", 
+            RowBox[{"m", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}]}], "]"}]}], ",", 
+     "0"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "A1RootLattice"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "0", ",", "nN"}], "}"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[1013]:=",ExpressionUUID->"48c12109-f71c-448d-96f1-b877b819eaa7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      FractionBox[
+       SuperscriptBox["\[Nu]1", "2"], "2"]], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+         "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}], "2"]}]], 
+      " ", "\[Epsilon]", " ", "\[Xi]2", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "\[Xi]1"], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"], 
+        "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"]}]], " ", 
+      "\[Epsilon]", " ", "\[Xi]1", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+     "\[Xi]2"], "+", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       FractionBox[
+        SuperscriptBox["\[Nu]1", "2"], "2"]}]], " ", "\[Epsilon]", " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"], 
+        "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}], "2"]}]}]], " ", 
+      SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]1", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+     "\[Xi]2"], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+         "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}], "2"]}]}]],
+       " ", 
+      SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]2", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], "\[Xi]1"], "+", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       FractionBox[
+        SuperscriptBox["\[Nu]1", "2"], "2"]}]], " ", 
+     SuperscriptBox["\[Epsilon]", "2"], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "2"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      FractionBox[
+       SuperscriptBox["\[Nu]2", "2"], "2"]], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+         "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}], ")"}], "2"]}]], " ", 
+      "\[Epsilon]", " ", "\[Xi]2", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "\[Xi]1"], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"], 
+        "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], "2"]}]], 
+      " ", "\[Epsilon]", " ", "\[Xi]1", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], 
+     "\[Xi]2"], "+", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       FractionBox[
+        SuperscriptBox["\[Nu]2", "2"], "2"]}]], " ", "\[Epsilon]", " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "1"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"], 
+        "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]1", "-", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}], ")"}], "2"]}]}]],
+       " ", 
+      SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]1", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], 
+     "\[Xi]2"], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"r", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+         "\[Epsilon]"], "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Pi]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "\[Rho]1"}], "+", "\[Rho]2"}], ")"}]}]}]], " ", 
+      SuperscriptBox["r", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}], ")"}], "2"]}]}]], " ", 
+      SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]2", " ", 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+      RowBox[{
+       SubscriptBox["Binf", "1"], "[", 
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], "\[Xi]1"], "+", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      FractionBox[
+       RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+     SuperscriptBox["r", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       FractionBox[
+        SuperscriptBox["\[Nu]2", "2"], "2"]}]], " ", 
+     SuperscriptBox["\[Epsilon]", "2"], " ", 
+     RowBox[{"cC", "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+     RowBox[{
+      SubscriptBox["Binf", "2"], "[", 
+      RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8296524499894943`*^9},
+ CellLabel->
+  "Out[1013]=",ExpressionUUID->"d5a7812f-7abb-4898-a3b0-2b81249ce2ea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], 
+        RowBox[{"m", ".", "m"}]}], "+", "i"}], "\[LessEqual]", "nN"}], ",", 
+     RowBox[{
+      SuperscriptBox["\[Epsilon]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", "2"}], 
+         RowBox[{"m", ".", "m"}]}], "+", "i"}]], 
+      SuperscriptBox["\[Xi]1", 
+       RowBox[{"m", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]], 
+      SuperscriptBox["\[Xi]2", 
+       RowBox[{"m", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]], 
+      SuperscriptBox["E", 
+       RowBox[{" ", 
+        RowBox[{
+         SuperscriptBox["\[Epsilon]", 
+          RowBox[{"-", "1"}]], " ", "r", 
+         RowBox[{
+          RowBox[{"(", " ", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "}"}], "+", 
+            RowBox[{"I", " ", "m"}]}], ")"}], ".", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0"}], "}"}]}]}]}]], 
+      RowBox[{"cC", "[", 
+       RowBox[{
+        RowBox[{"\[Nu]1", "+", 
+         RowBox[{"I", " ", 
+          RowBox[{"m", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+        RowBox[{"\[Nu]2", "+", 
+         RowBox[{"I", " ", 
+          RowBox[{"m", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}], 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"i", "\[Equal]", "0"}], ",", "1", ",", 
+        RowBox[{
+         SubscriptBox["Binf", "i"], "[", 
+         RowBox[{
+          RowBox[{"\[Nu]1", "+", 
+           RowBox[{"I", " ", 
+            RowBox[{"m", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}], ",", 
+          RowBox[{"\[Nu]1", "+", 
+           RowBox[{"I", " ", 
+            RowBox[{"m", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}]}], "]"}]}], ",", 
+     "0"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "A1RootLattice"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "0", ",", "nN"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8296524641294394`*^9, 3.829652466278651*^9}},
+ CellLabel->
+  "In[1015]:=",ExpressionUUID->"bc0bb106-5d03-4c36-9e62-e5b73f2299d2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}]}], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+      "\[Epsilon]"]], " ", "\[Epsilon]", " ", "\[Xi]2", " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}]}], "\[Xi]1"], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"]], 
+    " ", "\[Epsilon]", " ", "\[Xi]1", " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}]}], "\[Xi]2"], 
+  "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", "\[Epsilon]", " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+   RowBox[{
+    SubscriptBox["Binf", "1"], "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ")"}]}], "\[Epsilon]"]], 
+    " ", 
+    SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]1", " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]2"}]}], "]"}], " ", 
+    RowBox[{
+     SubscriptBox["Binf", "1"], "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}]}], "]"}]}], "\[Xi]2"], 
+  "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ")"}]}], 
+      "\[Epsilon]"]], " ", 
+    SuperscriptBox["\[Epsilon]", "2"], " ", "\[Xi]2", " ", 
+    RowBox[{"cC", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], "+", "\[Nu]1"}], ",", 
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]2"}]}], "]"}], " ", 
+    RowBox[{
+     SubscriptBox["Binf", "1"], "[", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}], ",", 
+      RowBox[{"\[ImaginaryI]", "+", "\[Nu]1"}]}], "]"}]}], "\[Xi]1"], "+", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{"r", " ", "\[Nu]1"}], "\[Epsilon]"]], " ", 
+   SuperscriptBox["\[Epsilon]", "2"], " ", 
+   RowBox[{"cC", "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]2"}], "]"}], " ", 
+   RowBox[{
+    SubscriptBox["Binf", "2"], "[", 
+    RowBox[{"\[Nu]1", ",", "\[Nu]1"}], "]"}]}]}]], "Output",
+ CellChangeTimes->{{3.829652464588953*^9, 3.829652466663493*^9}},
+ CellLabel->
+  "Out[1015]=",ExpressionUUID->"249e70d3-75df-4e78-9dfe-7714074c6816"]
+}, Open  ]]
+},
+WindowSize->{1920, 1037},
+WindowMargins->{{0, Automatic}, {Automatic, 18}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 11384, 320, 497, "Input",ExpressionUUID->"7a63c405-15d3-4e0a-b1eb-d288d40c7d14"],
+Cell[CellGroupData[{
+Cell[11967, 344, 1259, 33, 96, "Input",ExpressionUUID->"bfd14460-4032-4de7-9ec2-f11510b76d2b"],
+Cell[13229, 379, 1534, 45, 70, "Output",ExpressionUUID->"a4f8602d-b451-4b77-b10c-f98564239080"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14800, 429, 1183, 32, 96, "Input",ExpressionUUID->"7daa3758-5995-435e-8518-b0aa996b2089"],
+Cell[15986, 463, 2182, 65, 63, "Output",ExpressionUUID->"89201920-5eec-423d-a5f2-3e6074dc67fb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18205, 533, 908, 26, 39, "Input",ExpressionUUID->"8874e58a-7e88-4fce-9b8b-3d81d930b5f8"],
+Cell[19116, 561, 689, 21, 44, "Output",ExpressionUUID->"51979e64-1d46-478e-b604-6ed2a4a37126"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19842, 587, 1759, 52, 93, "Input",ExpressionUUID->"e2e7b65a-11c8-4aff-8584-b7f719adb372"],
+Cell[21604, 641, 959, 29, 63, "Output",ExpressionUUID->"f7ced647-0d3b-411f-9d35-2f8b1d1f66cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22600, 675, 1299, 40, 63, "Input",ExpressionUUID->"b0caf9d4-6144-4e85-a442-a21871b16d73"],
+Cell[23902, 717, 180, 3, 77, "Output",ExpressionUUID->"26bfda3a-0601-45a8-8650-4fb61faba363"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24119, 725, 732, 19, 39, "Input",ExpressionUUID->"9482e6e1-dd79-48aa-9663-e066ddfeb00e"],
+Cell[24854, 746, 1425, 44, 70, "Output",ExpressionUUID->"d3369050-eee1-4fe9-8b1c-a9878f49bfb2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26316, 795, 1811, 53, 52, "Input",ExpressionUUID->"ac740cdc-af41-4698-9a2d-d5e5c765cad8"],
+Cell[28130, 850, 275, 5, 44, "Output",ExpressionUUID->"1bd2187b-e1b6-46c3-ab2b-64920f6e0902"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28442, 860, 693, 21, 48, "Input",ExpressionUUID->"1d2d2c44-5477-4e54-a328-275056826dda"],
+Cell[29138, 883, 542, 16, 53, "Output",ExpressionUUID->"7ebb79a5-5095-4d48-9eb6-e98c819c4815"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29717, 904, 909, 26, 43, "Input",ExpressionUUID->"e09e381f-51cf-45c5-83c1-5932c8b06526"],
+Cell[30629, 932, 1177, 33, 62, "Output",ExpressionUUID->"00a33488-1753-49f9-9a81-b1628d930122"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31843, 970, 694, 18, 49, "Input",ExpressionUUID->"76da47e9-ddb5-447e-9632-cafcb307c2b6"],
+Cell[32540, 990, 606, 18, 53, "Output",ExpressionUUID->"bc311ab5-03e5-4ebd-bd48-397a5fb46fa1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33183, 1013, 735, 20, 39, "Input",ExpressionUUID->"77001d2c-6c53-4307-af4e-0b3273c4a307"],
+Cell[33921, 1035, 8905, 252, 156, "Output",ExpressionUUID->"b916884b-dbbe-4fad-87ed-69aefb2473ed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42863, 1292, 349, 8, 39, "Input",ExpressionUUID->"a016f320-8ddf-41d6-9912-f0adaea6d13e"],
+Cell[43215, 1302, 210, 4, 44, "Output",ExpressionUUID->"2a77309c-2b07-4630-9ab0-958252e41b5a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43462, 1311, 770, 22, 63, "Input",ExpressionUUID->"1dcdf600-4a65-48c5-b055-d9bb28ade389"],
+Cell[44235, 1335, 2251, 64, 93, "Output",ExpressionUUID->"e9c9a004-0343-4e53-a76a-27db6873f7e0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46523, 1404, 2121, 53, 187, "Input",ExpressionUUID->"af835228-7d6f-4c99-907b-d18b16a57d02"],
+Cell[48647, 1459, 68164, 1673, 1662, "Output",ExpressionUUID->"96adee37-d595-4af1-8e5b-a09b079982c8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[116848, 3137, 1090, 30, 63, "Input",ExpressionUUID->"97ee7abd-cf64-4a97-92a1-4180ea2d0ed0"],
+Cell[117941, 3169, 1597, 49, 76, "Output",ExpressionUUID->"a26df658-f15c-4111-84cf-cd9479b1067c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[119575, 3223, 371, 9, 39, "Input",ExpressionUUID->"15314331-1b8f-491c-aaf6-306c98740b92"],
+Cell[119949, 3234, 6593, 183, 211, "Output",ExpressionUUID->"6d526553-2fd4-4cf9-b333-09e7fd1f0d06"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[126579, 3422, 1023, 29, 63, "Input",ExpressionUUID->"57e1bf74-1242-4bff-864c-07b919144c75"],
+Cell[127605, 3453, 3140, 83, 101, "Output",ExpressionUUID->"d7181cea-b4b8-411c-8542-3754acad7edc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[130782, 3541, 1631, 51, 69, "Input",ExpressionUUID->"57d64848-23e9-43eb-9618-243afbf1da8b"],
+Cell[132416, 3594, 804, 21, 74, "Output",ExpressionUUID->"02bcf662-9122-41e6-a543-6fa6e05c1f0c"]
+}, Open  ]],
+Cell[133235, 3618, 526, 17, 39, "Input",ExpressionUUID->"df424ca7-3436-40f3-a925-13a143ebabf0"],
+Cell[CellGroupData[{
+Cell[133786, 3639, 291, 6, 39, "Input",ExpressionUUID->"1e3937e0-43e7-4543-8083-e9d16804084d"],
+Cell[134080, 3647, 8713, 245, 300, "Output",ExpressionUUID->"28468063-8f51-4c49-9b44-83a253ff924b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[142830, 3897, 2786, 85, 95, "Input",ExpressionUUID->"48c12109-f71c-448d-96f1-b877b819eaa7"],
+Cell[145619, 3984, 11151, 325, 424, "Output",ExpressionUUID->"d5a7812f-7abb-4898-a3b0-2b81249ce2ea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[156807, 4314, 2189, 66, 95, "Input",ExpressionUUID->"bc0bb106-5d03-4c36-9e62-e5b73f2299d2"],
+Cell[158999, 4382, 3331, 99, 181, "Output",ExpressionUUID->"249e70d3-75df-4e78-9dfe-7714074c6816"]
+}, Open  ]]
+}
+]
+*)
+
